@@ -188,6 +188,7 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
 
             nmf_features_copy = nmf_features
             indexes = []
+            topics = []
             indexes.append(nmf_features.index(max(nmf_features_copy)))
             nmf_features_copy.pop(indexes[0])
       
