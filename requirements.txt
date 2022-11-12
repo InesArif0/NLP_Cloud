@@ -60,7 +60,6 @@ toml
 toolz
 tornado
 tqdm
-typing_extension
 tzdata
 tzlocal
 Unidecode
