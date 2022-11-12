@@ -185,6 +185,7 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
             text = [text]
             vect = vectorizer.transform(text)
             nmf_features = list(list(model.transform(vect))[0])
+            
             nmf_features_copy = nmf_features
             indexes = []
             indexes.append(nmf_features.index(max(nmf_features_copy)))
@@ -192,7 +193,10 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
 
             for i in range(nb_features - 1):
                 index = nmf_features.index(max(nmf_features_copy))
-                indexes.append(index)
+                if index in indexes : 
+                    index = 
+                else :
+                    indexes.append(index)
                 nmf_features_copy.pop(index)
             topics = []
             for i in indexes:
