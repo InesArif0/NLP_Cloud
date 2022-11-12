@@ -193,11 +193,12 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
       
             for i in range(nb_features-1):
                 if max(nmf_features_copy)<0.0000 :
+                    bool_number = True
                     while(bool_number):
-                    ind = random.randint(0, 14))
-                    if ind not in indexes :
-                        index = ind
-                        bool_number = False
+                        ind = np.random.randint(0, 14))
+                        if ind not in indexes :
+                            index = ind
+                            bool_number = False
                 else :
                     index = nmf_features.index(max(nmf_features_copy))
                 indexes.append(index)
