@@ -197,8 +197,7 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
                     array = np.array(nmf_features)
                     indices = np.where(array == 0.0)[0]
                     index = [ind for ind in indices and ind not in indexes][0]
-                else :
-                    indexes.append(index)
+                indexes.append(index)
                 nmf_features_copy.pop(index)
             topics = []
             for i in indexes:
