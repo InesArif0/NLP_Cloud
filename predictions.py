@@ -185,17 +185,24 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
             text = [text]
             vect = vectorizer.transform(text)
             nmf_features = list(list(model.transform(vect))[0])
-            
+
             nmf_features_copy = nmf_features
             indexes = []
-            
-            nmf_features.sort()
-            sorted=nmf_features[::-1]
-            topics=[]
-            for i in range(nb_features):
-                corr_value= sorted[i]
-                result = np.where(nmf_features_copy == corr_value)[0]
-                topics.append(labels_dict.get(result[0]))
+            indexes.append(nmf_features.index(max(nmf_features_copy)))
+            nmf_features_copy.pop(indexes[0])
+      
+            for i in range(nb_features-1):
+                if max(nmf_features_copy)<0.0000 :
+                    while(bool_number):
+                    ind = random.randint(0, 14))
+                    if ind not in indexes :
+                        index = ind
+                        bool_number = False
+                else :
+                    index = nmf_features.index(max(nmf_features_copy))
+                indexes.append(index)
+                nmf_features_copy.pop(index)
+
+            for i in indexes :
+                topics.append(labels_dict[i])
             return polarity, topics
-
-
