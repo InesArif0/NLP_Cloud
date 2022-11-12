@@ -195,7 +195,7 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
             for i in range(nb_features):
                 corr_value= sorted[i]
                 result = np.where(nmf_features_copy == corr_value)[0]
-                indexes.append(resultat)
+                indexes.append(result)
             topics = []
             for i in indexes:
                topics.append(labels_dict[i])
