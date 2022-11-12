@@ -190,7 +190,7 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
             indexes = []
             
             nmf_features.sort()
-            sorted=nmf_features[0][::-1]
+            sorted=nmf_features[::-1]
             topics=[]
             for i in range(n_topics):
                 corr_value= sorted[i]
