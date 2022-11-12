@@ -188,17 +188,14 @@ def predict(text: str, nb_features: int, labels_dict=labels_dict, blob=True):
             
             nmf_features_copy = nmf_features
             indexes = []
-            indexes.append(nmf_features.index(max(nmf_features_copy)))
-            nmf_features_copy.pop(indexes[0])
-
-            for i in range(nb_features - 1):
-                index = nmf_features.index(max(nmf_features_copy))
-                if index in indexes : 
-                    array = np.array(nmf_features)
-                    indices = np.where(array == 0.0)[0]
-                    index = [ind for ind in indices and ind not in indexes][0]
-                indexes.append(index)
-                nmf_features_copy.pop(index)
+            
+            nmf_features.sort()
+            sorted=nmf_features[0][::-1]
+            topics=[]
+            for i in range(n_topics):
+                corr_value= sorted[i]
+                result = np.where(nmf_features_copy == corr_value)[0]
+                indexes.append(resultat)
             topics = []
             for i in indexes:
                topics.append(labels_dict[i])
